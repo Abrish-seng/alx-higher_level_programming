@@ -1,72 +1,21 @@
-#include "lists.h"
+import ctypes
 
-listint_t *reverse_listint(listint_t **head);
-int is_palindrome(listint_t **head);
-
-/**
- * reverse_listint - Reverses a singly-linked listint_t list.
- * @head: A pointer to the starting node of the list to reverse.
- *
- * Return: A pointer to the head of the reversed list.
- */
-listint_t *reverse_listint(listint_t **head)
-{
-    listint_t *node = *head, *next, *prev = NULL;
-
-    while (node)
-    {
-        next = node->next;
-        node->next = prev;
-        prev = node;
-        node = next;
-    }
-
-    *head = prev;
-    return (*head);
-}
-
-/**
- * is_palindrome - Checks if a singly linked list is a palindrome.
- * @head: A pointer to the head of the linked list.
- *
- * Return: If the linked list is not a palindrome - 0.
- *         If the linked list is a palindrome - 1.
- */
-int is_palindrome(listint_t **head)
-{
-    listint_t *tmp, *rev, *mid;
-    size_t size = 0, i;
-
-    if (*head == NULL || (*head)->next == NULL)
-        return (1);
-
-    tmp = *head;
-    while (tmp)
-    {
-        size++;
-        tmp = tmp->next;
-    }
-
-    tmp = *head;
-    for (i = 0; i < (size / 2) - 1; i++)
-        tmp = tmp->next;
-
-    if ((size % 2) == 0 && tmp->n != tmp->next->n)
-        return (0);
-
-    tmp = tmp->next->next;
-    rev = reverse_listint(&tmp);
-    mid = rev;
-
-    tmp = *head;
-    while (rev)
-    {
-        if (tmp->n != rev->n)
-            return (0);
-        tmp = tmp->next;
-        rev = rev->next;
-    }
-    reverse_listint(&mid);
-
-    return (1);
-}
+lib = ctypes.CDLL('./libPyList.so')
+lib.print_python_list_info.argtypes = [ctypes.py_object]
+ll = ['hello', 'World']
+lib.print_python_list_info(ll)
+del ll[1]
+lib.print_python_list_info(ll)
+ll = ll + [4, 5, 6.0, (9, 8), [9, 8, 1024], "My string"]
+lib.print_python_list_info(ll)
+m = []
+lib.print_python_list_info(m)
+m.append(0)
+lib.print_python_list_info(m)
+m.append(1)
+m.append(2)
+m.append(3)
+m.append(4)
+lib.print_python_list_info(m)
+m.pop()
+lib.print_python_list_info(m)
