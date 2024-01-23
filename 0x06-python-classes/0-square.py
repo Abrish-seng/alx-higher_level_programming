@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""empty class created"""
+"""Empty class created."""
 class Square():
-    """The square class is created"""
+    """The square class is created."""
     pass
