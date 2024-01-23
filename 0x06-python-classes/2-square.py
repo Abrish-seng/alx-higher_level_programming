@@ -1,12 +1,13 @@
 #!/usr/bin/python3
-"""Print integer if not print type error"""
+"""class Square that defines a square"""
+
 
 class Square():
+    """square class with it's size and proper validation"""
 
-    def _init_(self, size = 0):
-        
+    def __init__(self, size=0):
         if (type(size) is not int):
             raise TypeError("size must be an integer")
         elif (size < 0):
             raise ValueError("size must be >= 0")
-        self._size = size
+        self.__size = size
