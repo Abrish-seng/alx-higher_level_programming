@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-"""Empty class created."""
+"""Square class to represent a square"""
+
 
 class Square():
-    """The square class is created."""
-
+    """Empty class"""
     pass
