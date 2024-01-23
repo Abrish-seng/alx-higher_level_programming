@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Print integer if not print type error"""
 
-class Square:
+class Square():
 
     def _init_(self, size = 0):
         
