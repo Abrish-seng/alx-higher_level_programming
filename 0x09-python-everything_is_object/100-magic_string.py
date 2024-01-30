@@ -4,7 +4,8 @@ Magic string
 
 """
 
-def magic_string(l=[]):
+
+def magic_string(mylist=[]):
     """Omit a period in the docstring as an exception"""
-    l += ["BestSchool"]
-    return ", ".join(l)
+    mylist += ["BestSchool"]
+    return ", ".join(mylist)
